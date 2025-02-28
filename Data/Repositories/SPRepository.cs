@@ -38,23 +38,23 @@ namespace SoccerPlayer.Data.Repositories
             return playerspobjobj;
         }
 
-        //public async Task<Player> GetPlayer(string PlayerName, int jerseyNumber)
-        //{
-        //    var playerspobjobj = await _databaseContext.Players.FromSqlInterpolated($"exec GetPlayer @jerseyNumber={jerseyNumber},@PlayerName={PlayerName}").ToListAsync();
-        //    return playerspobjobj.FirstOrDefault();
-        //}
         public async Task<Player> GetPlayer(string PlayerName, int jerseyNumber)
         {
-            
-                var query = "SELECT * FROM Player WHERE JerseyNumber = @jerseyNumber AND PlayerName = @PlayerName";
-                var player = await _databaseContext.Players.FromSqlRaw(query,
-                                    new SqlParameter("@jerseyNumber", jerseyNumber),
-                                    new SqlParameter("@PlayerName", PlayerName))
-                                    .ToListAsync();
-                return player.FirstOrDefault();
-           
-           
+            var playerspobjobj = await _databaseContext.Players.FromSqlInterpolated($"exec GetPlayer @jerseyNumber={jerseyNumber},@PlayerName={PlayerName}").ToListAsync();
+            return playerspobjobj.FirstOrDefault();
         }
+        //public async Task<Player> GetPlayer(string PlayerName, int jerseyNumber)
+        //{
+            
+        //        var query = "SELECT * FROM Player WHERE JerseyNumber = @jerseyNumber AND PlayerName = @PlayerName";
+        //        var player = await _databaseContext.Players.FromSqlRaw(query,
+        //                            new SqlParameter("@jerseyNumber", jerseyNumber),
+        //                            new SqlParameter("@PlayerName", PlayerName))
+        //                            .ToListAsync();
+        //        return player.FirstOrDefault();
+           
+           
+        //}
 
 
         public async Task<List<Player1>> GetPlayersList()
