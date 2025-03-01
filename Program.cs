@@ -12,6 +12,7 @@ builder.Services.AddDbContext<SampleDatabaseContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+//Connection string added
 builder.Services.AddScoped<ISPRepository, SPRepository>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
