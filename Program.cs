@@ -12,7 +12,10 @@ builder.Services.AddDbContext<SampleDatabaseContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
-//Connection string added--FeatureA-- Version 7
+
+//Connection string added version 7
+=======
+
 builder.Services.AddScoped<ISPRepository, SPRepository>();
 //Add connection string - brach -Feature200
 
